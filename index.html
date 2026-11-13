@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff8f1">
+<meta name="description" content="A little birthday surprise for Sakshi">
+<title>Happy Birthday, Sakshi!</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="page">
+  <nav class="nav"><a class="logo" href="#top"><span>S</span> THE SAKSHI EDITION</a><a href="#photos">THE PHOTO WALL ↓</a></nav>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">✦ A SPECIAL DELIVERY ✦</p>
+        <h1>Hey, <em>Sakshi!</em><br>It's your day.</h1>
+        <p class="intro">A tiny corner of the internet, packed with birthday cheer, good wishes, and a few moments worth keeping.</p>
+        <a class="button" href="#photos">Open your surprise <span>↗</span></a>
+        <p class="scribble">P.S. Yes, you're required to enjoy this.</p>
+      </div>
+      <div class="gift-scene" aria-label="Illustration of a wrapped birthday gift">
+        <div class="spark s1">✦</div><div class="spark s2">✳</div><div class="spark s3">✧</div>
+        <div class="gift"><div class="gift-lid"></div><div class="gift-bow"></div><div class="gift-ribbon"></div><div class="gift-label">FOR<br>SAKSHI</div></div>
+        <p>HANDLE WITH<br>HAPPINESS</p>
+      </div>
+      <div class="hero-foot"><span>SCROLL FOR THE GOOD STUFF</span><span>01 / 04</span></div>
+    </section>
+
+    <section class="intro-section">
+      <p class="eyebrow">TODAY'S IMPORTANT ANNOUNCEMENT</p>
+      <h2>Officially your<br><em>main-character</em> day.</h2>
+      <div class="birthday-note">
+        <div class="cake-art"><span>✦</span><div class="cake-candle"></div><div class="cake-top"></div><div class="cake-bottom"></div><div class="plate"></div></div>
+        <div><span class="sticker">BIRTHDAY RULE #1</span><h3>No ordinary day<br>allowed today.</h3><p>Eat something delicious. Laugh a little louder. Take too many pictures. Do something that makes you ridiculously happy. The schedule is yours.</p></div>
+      </div>
+    </section>
+
+    <section class="photo-section" id="photos">
+      <p class="eyebrow">A LITTLE PHOTO SCRAPBOOK</p>
+      <h2>Six little snapshots,<br><em>one very special person.</em></h2>
+      <p class="section-sub">A few moments to make this birthday page feel a little more yours. Tap any photo to see it larger.</p>
+      <div class="gallery">
+        <button class="photo p1" data-full="assets/sakshi-01.jpg" aria-label="Open photo 1"><img src="assets/sakshi-01.jpg" alt="Sakshi in a traditional magenta outfit"><span>01 · A little festive sparkle</span></button>
+        <button class="photo p2" data-full="assets/sakshi-02.png" aria-label="Open photo 2"><img src="assets/sakshi-02.png" alt="Sakshi in a light outfit"><span>02 · Soft-light moment</span></button>
+        <button class="photo p3" data-full="assets/sakshi-03.png" aria-label="Open photo 3"><img src="assets/sakshi-03.png" alt="Another portrait of Sakshi"><span>03 · Just being you</span></button>
+        <button class="photo p4" data-full="assets/sakshi-04.png" aria-label="Open photo 4"><img src="assets/sakshi-04.png" alt="Sakshi in a pink outfit"><span>04 · Pink-day energy</span></button>
+        <button class="photo p5" data-full="assets/sakshi-05.png" aria-label="Open photo 5"><img src="assets/sakshi-05.png" alt="Sakshi smiling in warm red light"><span>05 · A bright little moment</span></button>
+        <button class="photo p6" data-full="assets/sakshi-06.png" aria-label="Open photo 6"><img src="assets/sakshi-06.png" alt="Sakshi enjoying a snowy moment"><span>06 · Winter memories</span></button>
+      </div>
+    </section>
+
+    <section class="wish-section">
+      <p class="eyebrow">A NOTE FOR THE BIRTHDAY GIRL</p>
+      <h2>One slightly<br><em>serious</em> minute.</h2>
+      <article class="letter">
+        <p class="letter-label">DEAR SAKSHI, ✦</p>
+        <p>Some people make ordinary days better without even trying. You're one of those people.</p>
+        <p>I hope this new year brings you the kind of happiness that stays, opportunities that excite you, and people who make you feel appreciated. Keep chasing the things that matter to you, laughing at the silly things, and celebrating the small wins too.</p>
+        <p>Wishing you good health, good luck, countless happy moments, and a year full of stories worth telling.</p>
+        <p class="signoff">Have the best one!<br><strong>Your forever well-wisher ✨</strong></p>
+      </article>
+    </section>
+
+    <section class="finale">
+      <div class="confetti">✦　✳　✿　★　✧　✦　✿　✳</div>
+      <p class="eyebrow">ONE LAST THING</p>
+      <h2>Make a wish,<br><em>Sakshi!</em></h2>
+      <p>May the next 365 days be full of unexpected good news, loud laughs, peaceful moments, and memories you'll want to keep forever.</p>
+      <button class="button" id="wishButton">One more thing <span>✦</span></button>
+      <p id="hiddenWish" class="hidden-wish" hidden>You're appreciated more than you know. Have an absolutely brilliant year ahead! ✨</p>
+      <footer><span>MADE WITH GOOD WISHES</span><span>HAPPY BIRTHDAY, SAKSHI ✿</span></footer>
+    </section>
+  </main>
+</div>
+<div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Photo viewer" hidden><button class="close" id="closeLightbox" aria-label="Close photo">×</button><img id="lightboxImage" alt="Expanded scrapbook photo"></div>
+<script>
+document.querySelectorAll(".photo").forEach(card=>card.addEventListener("click",()=>{const box=document.getElementById("lightbox");document.getElementById("lightboxImage").src=card.dataset.full;box.hidden=false;}));
+function closeBox(){document.getElementById("lightbox").hidden=true;}
+document.getElementById("closeLightbox").addEventListener("click",closeBox);
+document.getElementById("lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closeBox();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeBox();});
+document.getElementById("wishButton").addEventListener("click",()=>{document.getElementById("hiddenWish").hidden=false;document.getElementById("wishButton").textContent="Make it a wonderful year ✦";});
+</script>
+</body>
+</html>
